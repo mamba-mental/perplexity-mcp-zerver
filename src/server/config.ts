@@ -6,6 +6,12 @@ export const CONFIG = {
   BROWSER_DATA_DIR: process.env["PERPLEXITY_BROWSER_DATA_DIR"] || join(homedir(), ".perplexity-mcp"),
   USE_PERSISTENT_PROFILE: process.env["PERPLEXITY_PERSISTENT_PROFILE"] !== "false",
 
+  // Explicit Chrome/Chromium executable. When set, Puppeteer launches THIS browser
+  // instead of its bundled Chromium. Needed when the bundled Chromium is blocked from
+  // executing (Mark-of-the-Web / AV / ACL) — point it at a real installed Chrome.
+  // Empty string => Puppeteer's default bundled browser.
+  EXECUTABLE_PATH: process.env["PERPLEXITY_EXECUTABLE_PATH"] || "",
+
   SEARCH_COOLDOWN: 5000, // Restored from backup.ts for better Cloudflare handling
   PAGE_TIMEOUT: 180000, // Restored from backup.ts (3 minutes) for Cloudflare challenges
   SELECTOR_TIMEOUT: 90000, // Restored from backup.ts (1.5 minutes) for slow loading

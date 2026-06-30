@@ -39,6 +39,7 @@ export async function initializeBrowser(ctx: PuppeteerContext) {
     const browser = await puppeteer.launch({
       headless,
       args: browserArgs,
+      executablePath: CONFIG.EXECUTABLE_PATH || undefined,
       userDataDir: CONFIG.USE_PERSISTENT_PROFILE ? CONFIG.BROWSER_DATA_DIR : undefined,
     });
     ctx.setBrowser(browser);

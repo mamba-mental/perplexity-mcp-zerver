@@ -71,6 +71,7 @@ async function main() {
     // Use minimal args for interactive login - avoid aggressive flags that break UI
     const browser = await puppeteer.launch({
         headless: false,
+        executablePath: CONFIG.EXECUTABLE_PATH || undefined,
         args: [
             "--no-sandbox",
             "--disable-setuid-sandbox",
